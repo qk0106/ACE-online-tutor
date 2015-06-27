@@ -1,0 +1,33 @@
+<p>Author: Dylan Qin</p>
+<h2>Question and Answer</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Subject ID</th>
+      <th>Subject Post</th>
+      <th>Answered By</th>
+      <th>Date Answered</th>
+      <th>Date Posted</th>
+      <th>Subject</th>
+      <th>Category</th>
+      <th>Question</th>
+      <th>Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @qnas.each do |qna| %>
+        <tr>
+            <td><%= qna.subject.id %></td>
+            <td><%= qna.subject.post %></td>
+            <td><%= qna.answered_by %></td>
+            <td><%= qna.date_answered %></td>
+            <td><%= qna.date_post %></td>
+            <td><%= qna.subject.name %></td>
+            <td><%= qna.subject.category.name %></td>
+            <td><%= qna.question %></td>
+            <td><%= qna.answer %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

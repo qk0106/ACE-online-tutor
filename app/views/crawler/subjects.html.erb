@@ -1,0 +1,25 @@
+<p>Author: Dylan Qin</p>
+<h2>Subject</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Subject</th>
+      <th>Posted</th>
+      <th>Answered</th>
+      <th>Answered By</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subjects.each do |subject| %>
+        <tr>
+            <td><%= subject.post %></td>
+            <td><%= subject.name %></td>
+            <td><%= subject.posted_date %></td>
+            <td><%= subject.answered_date %></td>
+            <td><%= subject.answered_by %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

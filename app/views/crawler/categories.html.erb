@@ -1,0 +1,21 @@
+<p>Author: Dylan Qin</p>
+<h2>Category</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Posts</th>
+      <th>Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+        <tr>
+            <td><%= category.name %></td>
+            <td><%= category.posts %></td>
+            <td><%= category.last_updated %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

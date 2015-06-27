@@ -1,0 +1,35 @@
+<p>Author: Dylan Qin</p>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Home', crawler_courses_path %></li>
+  <li><%= link_to @category.course.code, crawler_course_path(@category.course.id) %></li>
+  <li class="active"><%= @category.name %></li>
+</ol>
+
+<h2>Question and Answers (<%= @category.name %>)</h2>
+
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Post</th>
+        <th>Subject</th>
+        <th>Posted</th>
+        <th>Answered</th>
+        <th>Answered By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @subjects.each do |subject| %>
+          <tr>
+              <td><%= subject.post %></td>
+              <td><%= link_to subject.name, crawler_subject_path(subject.id) %></td>
+              <td><%= subject.posted_date %></td>
+              <td><%= subject.answered_date %></td>
+              <td><%= subject.answered_by %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
