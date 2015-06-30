@@ -16,19 +16,21 @@ class Subject < ActiveRecord::Base
 
                		reg_table = /<table class="table-dynamic table-small" cellspacing="0">([\s\S]*)<\/table>/
                                 #reg_element = /<td><a title="View Details" href="[\w\.\?\=\&\%\+]*"><span class="[\w]*">([\w\s\:]*)/
-                                reg_element = /<td><a title="View Details" href="[\w\.\?\=\&\%\+]*"><span class="[\w]*">([\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*)/
-                                reg_href = /<td><a title="View Details" href="([\w\.\?\=\&\%\+]*)"><span class="[\w]*">[\w\s\:]*/
+                                reg_element = /<td><a title="View Details" href="[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*"><span class="[\w]*">([\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*)</
+                                reg_href = /<td><a title="View Details" href="([\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*)"><span class="[\w]*">[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*</
                                                 
                                 table = body.scan(reg_table)[0][0]
                                 hrefs =  table.scan(reg_href)
                                 all_elements = table.scan(reg_element)
 
-                                posts                         = getSubjectElements(all_elements,0)
-                                names                       = getSubjectElements(all_elements,1)
-                                posted_dates          = getSubjectElements(all_elements,2)
-                                answered_dates     = getSubjectElements(all_elements,3)
-                                answered_bys         = getSubjectElements(all_elements,4)
-                                urls 		     = getSubjectElements(hrefs,0)
+                                #puts "~~~~~~~~", table, all_elements
+
+                                posts           = getSubjectElements(all_elements,0)
+                                names           = getSubjectElements(all_elements,1)
+                                posted_dates    = getSubjectElements(all_elements,2)
+                                answered_dates  = getSubjectElements(all_elements,3)
+                                answered_bys    = getSubjectElements(all_elements,4)
+                                urls            = getSubjectElements(hrefs,0)
                                 #puts posts.length, names.length, posted_dates.length, answered_dates.length, answered_bys.length
 
                                 names.length.times do |x|
@@ -46,7 +48,7 @@ class Subject < ActiveRecord::Base
 		names.length.times do |x|
 			subject_id = subjects[x].id
 			relative_url = urls[x]
-			#if x == 0 || x == 1 || x == 2
+			#if x == 0 || x == 1
 				Qna.abstractQna(subject_id, relative_url, http, cookies)
 			#end
 		end

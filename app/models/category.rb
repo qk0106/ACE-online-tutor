@@ -8,8 +8,8 @@ class Category < ActiveRecord::Base
 
     def self.abstractCategory(course_id, body, http, cookies)
         reg_table = /<h2>SUBJECT CATEGORIES<\/h2>\s*<table class="table-dynamic table-small" cellspacing="0">([\s\S]*)<\/table>\s*<div class="spacer2">/
-		reg_element = /<td><a title="View questions and answers" href="[\w\.\?\=]*">([\w\s\:]*)/
-		reg_href = /<td><a title="View questions and answers" href="([\w\.\?\=]*)">[\w\s\:]*/
+		reg_element = /<td><a title="View questions and answers" href="[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*">([\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*)</
+		reg_href = /<td><a title="View questions and answers" href="([\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*)">[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*</
 
 		table = body.scan(reg_table)[0][0] #puts table[0][0].class
 		hrefs =  table.scan(reg_href)		

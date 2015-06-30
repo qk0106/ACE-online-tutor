@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'crawler/login_scrape' => 'crawler#login_scrape', as: :crawler_login_scrape
+  get 'crawler/scrape' => 'crawler#scrape', as: :crawler_scrape
+  get 'crawler/deleteall' => 'crawler#deleteall', as: :crawler_deleteall
+
   get 'crawler/courses' => 'crawler#courses', as: :crawler_courses
   get 'crawler/categories' => 'crawler#categories', as: :crawler_categories
   get 'crawler/subjects' => 'crawler#subjects', as: :crawler_subjects
