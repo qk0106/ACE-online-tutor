@@ -10,7 +10,7 @@ class Qna < ActiveRecord::Base
                 	            resp_index = http.get(path, { 'Cookie' => cookies })
                                 body = resp_index.body
 
-                                reg_answered_by = /<td><label><b>Answered By:<\/b>\s*<\/label> ([\w\s]*)<\/td>/ 
+                                reg_answered_by = /<td><label><b>Answered By:<\/b>\s*<\/label> ([\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*)<\/td>/ 
                                 reg_date_answered = /<td><label><b>Date Answered:<\/b>\s*<\/label> ([\w\s\:]*)<\/td>/
                                 reg_date_post = /<td><label><b>Date Posted:<\/b>\s*<\/label> ([\w\s\:]*)<\/td>/
                                 reg_question = /<th>Question<\/th>\s*<\/tr>\s*<tr>\s*<td>([\w\W]*)<\/td>\s*<\/tr>\s*<\/table>\s*<table class="table-dynamic table-small" cellspacing="0">/

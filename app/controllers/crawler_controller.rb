@@ -1,7 +1,6 @@
 class CrawlerController < ApplicationController
 
 	def scrape
-
 =begin
     # xiaoxuW
     xxw1 = Crawler.new("xiaoxuw", "Wxx19950914", "/olt/Login.aspx?SCode=FNCE10001_2015_SM1")
@@ -37,8 +36,36 @@ class CrawlerController < ApplicationController
     #luhengl
     lu4 = Crawler.new("luhengl", "Hahahaha.", "/olt/Login.aspx?scode=MGMT20001_2015_SM1")
     lu4.login_and_scrape
+    
+    #hongw1
+    hong1 = Crawler.new("hongw1", "Wh03221994", "/olt/Login.aspx?scode=FNCE30002_2015_SM1")
+    hong1.login_and_scrape
+   
+    #ziyunl
+    zi1 = Crawler.new("ziyunl", "Ellen19950504", "/olt/Login.aspx?scode=ECOM30001_2015_SM1")
+    zi1.login_and_scrape
+
+    #--- CLOSED!!!
+    #zi2 = Crawler.new("ziyunl", "Ellen19950504", "/olt/Login.aspx?scode=ECOM90001_2015_SM1")
+    #zi2.login_and_scrape
+
+    #--- CLOSED!!!
+    #zi3 = Crawler.new("ziyunl", "Ellen19950504", "/olt/Login.aspx?scode=MGMT10002_2015_SUM")
+    #zi3.login_and_scrape
+
+    zi4 = Crawler.new("ziyunl", "Ellen19950504", "/olt/Login.aspx?scode=MGMT30011_2015_SM1")
+    zi4.login_and_scrape
+
+    #zhuojingx
+    zhuo1 = Crawler.new("zhuojingx", "Xiaoxie521", "/olt/Login.aspx?scode=ECON20002_2015_SM1")
+    zhuo1.login_and_scrape
+
+    #peishanl
+    pei1 = Crawler.new("peishanl", "leona333", "/olt/Login.aspx?scode=FNCE30007_2015_SM1")
+    pei1.login_and_scrape
 =end
 
+    #---html---
 		respond_to do |format|
       			format.html {
                         			#@result = "Success: Finish Scraping Data"
@@ -50,6 +77,7 @@ class CrawlerController < ApplicationController
 	end
 
   def deleteall
+
     #Course.emptyAllCourse    
     #Category.emptyAllCategory
     #Subject.emptyAllSubject
