@@ -2,6 +2,7 @@ class CrawlerController < ApplicationController
 
 	def scrape
 
+=begin
     # xiaoxuW
     xxw1 = Crawler.new("xiaoxuw", "Wxx19950914", "/olt/Login.aspx?SCode=FNCE10001_2015_SM1")
 		xxw1.login_and_scrape
@@ -36,10 +37,12 @@ class CrawlerController < ApplicationController
     #luhengl
     lu4 = Crawler.new("luhengl", "Hahahaha.", "/olt/Login.aspx?scode=MGMT20001_2015_SM1")
     lu4.login_and_scrape
+=end
 
 		respond_to do |format|
       			format.html {
-                        			@result = "Success: Finish Scraping Data"
+                        			#@result = "Success: Finish Scraping Data"
+                              @result = "Scraping Service Closed"
                 		}
      			  format.js
       			format.json
@@ -47,14 +50,15 @@ class CrawlerController < ApplicationController
 	end
 
   def deleteall
-    Course.emptyAllCourse    
-    Category.emptyAllCategory
-    Subject.emptyAllSubject
-    Qna.emptyAllQna
+    #Course.emptyAllCourse    
+    #Category.emptyAllCategory
+    #Subject.emptyAllSubject
+    #Qna.emptyAllQna
 
     respond_to do |format|
             format.html {
-                              @result = "Success: Delete All Data"
+                              #@result = "Success: Delete All Data"
+                              @result = "Delete Service Closed"
                     }
             format.js
             format.json
