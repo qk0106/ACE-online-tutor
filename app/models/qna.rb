@@ -1,4 +1,5 @@
 class Qna < ActiveRecord::Base
+    has_many :qnaadds
 	belongs_to :subject
 
 	def self.emptyAllQna

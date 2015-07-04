@@ -65,11 +65,23 @@ class CrawlerController < ApplicationController
     pei1.login_and_scrape
 =end
 
+    #add qnaadd to every qna
+=begin
+    Qna.all.each do |qna|
+      q = Qnaadd.new
+      q.question = qna.question
+      q.answer = qna.answer
+      q.qna_id = qna.id
+      q.save
+    end
+=end
+
     #---html---
 		respond_to do |format|
       			format.html {
                         			#@result = "Success: Finish Scraping Data"
-                              @result = "Scraping Service Closed"
+                              @result = "Scrape Service Closed"
+                              #@result = "Qnaadd save sucess!"
                 		}
      			  format.js
       			format.json
@@ -173,6 +185,14 @@ class CrawlerController < ApplicationController
       format.js
       format.json
     end
+  end
+
+  def translate
+    #render plain: params[:translation].inspect
+    params[:translation]
+    #@article = Article.new(params[:article]) 
+    #@article.save
+    #redirect_to @article
   end
 
 end

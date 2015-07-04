@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'crawler/course/:id' => 'crawler#course', as: :crawler_course
   get 'crawler/category/:id' => 'crawler#category', as: :crawler_category
   get 'crawler/subject/:id' => 'crawler#subject', as: :crawler_subject
+
+  post 'crawler/translate/:id' => 'crawler#translate', as: :crawler_translate
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
