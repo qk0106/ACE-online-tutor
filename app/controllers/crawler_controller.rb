@@ -180,19 +180,42 @@ class CrawlerController < ApplicationController
     respond_to do |format|
       format.html {
         @subject = subject
-        @qnas = subject.qnas
+        @qna = subject.qnas[0]
+        @qnaadd = subject.qnas[0].qnaadds[0]
       }
       format.js
       format.json
     end
   end
 
-  def translate
-    #render plain: params[:translation].inspect
-    params[:translation]
-    #@article = Article.new(params[:article]) 
-    #@article.save
-    #redirect_to @article
+  def translate    
+    question_translate = params[:question_translate]
+    answer_translate = params[:answer_translate]
+    tags = params[:tags]
+    qnaadd_id = params[:id]
+
+    q = Qnaadd.find_by(id: qnaadd_id)
+
+    if question_translate != nil       
+      q.question = question_translate[:text]
+      q.save
+    elsif answer_translate != nil
+      q.answer = answer_translate[:text]
+      q.save
+    elsif tags != nil
+      q.tag = tags[:text]
+      q.save
+    else
+      puts "~~~ERROR!"
+    end
+
+    respond_to do |format|
+      format.html {
+        redirect_to(:back)
+      }
+      format.js
+      format.json
+    end
   end
 
 end

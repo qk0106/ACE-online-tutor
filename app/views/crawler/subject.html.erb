@@ -9,8 +9,6 @@
 
 <h2>Question and Answer (Post # <%= @subject.post %> )</h2>
 
-<% @qnas.each do |qna| %>
-
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -23,21 +21,23 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= qna.answered_by %></td>
-      <td><%= qna.date_answered %></td>
-      <td><%= qna.date_post %></td>
-      <td><%= qna.subject.category.name %></td>
-      <td><%= qna.subject.name %></td>            
+      <td><%= @qna.answered_by %></td>
+      <td><%= @qna.date_answered %></td>
+      <td><%= @qna.date_post %></td>
+      <td><%= @qna.subject.category.name %></td>
+      <td><%= @qna.subject.name %></td>            
     </tr>
   </tbody>
 </table>
+
+<hr/>
 
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Question</h3>
   </div>
   <div class="panel-body">
-    <%= qna.question %>
+    <%= @qna.question %>
   </div>
 </div>
 
@@ -46,26 +46,18 @@
     <h3 class="panel-title">Answer</h3>
   </div>
   <div class="panel-body">
-    <%= qna.answer %>
+    <%= @qna.answer %>
   </div>
 </div>
 
-<br/>
-<br/>
-<br/>
-<br/>
 <hr/>
-The following is in development !
-<br/>
-<hr/>
-
 
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Question Translation</h3>
   </div>
   <div class="panel-body">
-    <%= qna.qnaadds[0].question %>
+    <%= @qnaadd.question %>
   </div>
 </div>
 
@@ -74,44 +66,7 @@ The following is in development !
     <h3 class="panel-title">Answer Translation</h3>
   </div>
   <div class="panel-body">
-    <%= qna.qnaadds[0].answer %>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Answer Translation Edit</h3>
-  </div>
-  <div class="panel-body">
-    <form>
-      <div>
-        <textarea class="form-control" rows="3"> <%= qna.qnaadds[0].answer %> </textarea>
-      </div>
-      <hr/>
-      <div class="pull-right">
-        <button type="submit" class="btn btn-primary btn-sm">Confirm</button>
-        <button type="button" class="btn btn-default btn-sm">Cancel</button>
-      </div>        
-    </form>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Answer Translation Edit</h3>
-  </div>
-  <div class="panel-body">
-    <%= form_for :translation, url: crawler_translate_path do |f| %>
-      <div>
-        <%= f.text_area :text, class: 'form-control'%>
-      </div>
-
-      <hr/>
-
-      <div class="pull-right">
-        <%= f.submit "Confirm", class: 'btn btn-primary btn-sm'%>
-      </div>
-    <% end %>
+    <%= @qnaadd.answer %>
   </div>
 </div>
 
@@ -120,8 +75,59 @@ The following is in development !
     <h3 class="panel-title">Tags</h3>
   </div>
   <div class="panel-body">
-    <%= qna.qnaadds[0].tag %>
+    <%= @qnaadd.tag %>
   </div>
 </div>
 
-<% end %>
+<hr/>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Question Translation Edit</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for :question_translate, url: crawler_translate_path(@qnaadd.id) do |f| %>
+        <div>
+          <%= f.text_area :text, class: 'form-control', size: "60x6"%>
+        </div>
+        <br/>
+        <div class="pull-right">
+          <%= f.submit "Confirm", class: 'btn btn-primary btn-sm'%>
+        </div>
+    <% end %> 
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Answer Translation Edit</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for :answer_translate, url: crawler_translate_path(@qnaadd.id) do |f| %>
+        <div>
+          <%= f.text_area :text, class: 'form-control', size: "60x6" %>
+        </div>
+        <br/>
+        <div class="pull-right">
+          <%= f.submit "Confirm", class: 'btn btn-primary btn-sm'%>
+        </div>
+    <% end %> 
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Tags Edit</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for :tags, url: crawler_translate_path(@qnaadd.id) do |f| %>
+        <div>
+          <%= f.text_area :text, class: 'form-control'%>
+        </div>
+        <br/>
+        <div class="pull-right">
+          <%= f.submit "Confirm", class: 'btn btn-primary btn-sm', size: "60x1"%>
+        </div>
+    <% end %> 
+  </div>
+</div>
