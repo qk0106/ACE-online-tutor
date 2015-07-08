@@ -7,15 +7,26 @@
 <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="navbar navbar-inverse" role="navigation">
+	<div class="navbar navbar-default" role="navigation">
 		<div class="navbar-header">
 			<div class="container">
 				<%= link_to "ACE Online Tutor", crawler_courses_path, class: 'navbar-brand' %>
 			</div>
 		</div>
-	</div>
+	</div>	
 	<div class="container">
+		<p>@Dylan Qin</p>
 		<%= yield %>
 	</div>
+	<footer class="footer">
+      <div class="container">
+        <p class="text-muted">ACE Education Pty Ltd</p>
+      </div>
+    </footer>
+    <br/>
+    <br/>
+	<br/>
+	<br/>
+	<br/>
 </body>
 </html>

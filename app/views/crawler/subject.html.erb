@@ -1,5 +1,3 @@
-<p>@Dylan Qin</p>
-
 <ol class="breadcrumb">
   <li><%= link_to 'Home', crawler_courses_path %></li>
   <li><%= link_to @subject.category.course.code, crawler_course_path(@subject.category.course.id) %></li>
@@ -50,31 +48,12 @@
   </div>
 </div>
 
-<hr/>
-
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Question Translation</h3>
   </div>
   <div class="panel-body">
     <%= @qnaadd.question %>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Question Translation Edit</h3>
-  </div>
-  <div class="panel-body">
-    <%= form_for :question_translate, url: crawler_translate_path(@qnaadd.id) do |f| %>
-        <div>
-          <%= f.text_area :text, class: 'form-control', size: "60x6"%>
-        </div>
-        <br/>
-        <div class="pull-right">
-          <%= f.submit "Confirm", class: 'btn btn-primary btn-sm'%>
-        </div>
-    <% end %> 
   </div>
 </div>
 
@@ -89,23 +68,6 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Answer Translation Edit</h3>
-  </div>
-  <div class="panel-body">
-    <%= form_for :answer_translate, url: crawler_translate_path(@qnaadd.id) do |f| %>
-        <div>
-          <%= f.text_area :text, class: 'form-control', size: "60x6" %>
-        </div>
-        <br/>
-        <div class="pull-right">
-          <%= f.submit "Confirm", class: 'btn btn-primary btn-sm'%>
-        </div>
-    <% end %> 
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
     <h3 class="panel-title">Tags</h3>
   </div>
   <div class="panel-body">
@@ -113,36 +75,136 @@
   </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Tags Edit</h3>
-  </div>
-  <div class="panel-body">
-    <%= form_for :tags, url: crawler_translate_path(@qnaadd.id) do |f| %>
-        <div>
-          <%= f.text_area :text, class: 'form-control'%>
-        </div>
-        <br/>
-        <div class="pull-right">
-          <%= f.submit "Confirm", class: 'btn btn-primary btn-sm', size: "60x1"%>
-        </div>
-    <% end %> 
-  </div>
-</div>
+<hr/>
 
-<!--
-<div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
+<h2>Edit Area</h2>
+
+  <!-- question edit -->
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingQ">
       <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseeQ" aria-expanded="false" aria-controls="collapseQ">
+          Edit Question Translation
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseeQ" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingQ">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+        <!-- COLLAPSE BODY -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Question Translation</h3>
+          </div>
+          <div class="panel-body">
+            <%= @qnaadd.question %>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Question Translation Edit</h3>
+          </div>
+          <div class="panel-body">
+            <%= form_for :question_translate, url: crawler_translate_path(@qnaadd.id) do |f| %>
+                <div>
+                  <%= f.text_area :text, class: 'form-control', size: "60x6"%>
+                </div>
+                <br/>
+                <div class="pull-right">
+                  <%= f.submit "Confirm", class: 'btn btn-primary btn-sm'%>
+                </div>
+            <% end %> 
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-  
+
+  <!-- answer edit -->
+  <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingA">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseA" aria-expanded="false" aria-controls="collapseA">
+            Edit Answer Translation
+          </a>
+        </h4>
+      </div>
+      <div id="collapseA" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingA">
+        <div class="panel-body">
+          <!-- COLLAPSE BODY -->
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Answer Translation</h3>
+            </div>
+            <div class="panel-body">
+              <%= @qnaadd.answer %>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Answer Translation Edit</h3>
+            </div>
+            <div class="panel-body">
+              <%= form_for :answer_translate, url: crawler_translate_path(@qnaadd.id) do |f| %>
+                  <div>
+                    <%= f.text_area :text, class: 'form-control', size: "60x6" %>
+                  </div>
+                  <br/>
+                  <div class="pull-right">
+                    <%= f.submit "Confirm", class: 'btn btn-primary btn-sm'%>
+                  </div>
+              <% end %> 
+            </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+
+  <!-- tag edit -->
+  <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingT">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseT" aria-expanded="false" aria-controls="collapseT">
+            Edit Tags
+          </a>
+        </h4>
+      </div>
+      <div id="collapseT" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingT">
+        <div class="panel-body">
+          <!-- COLLAPSE BODY -->
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Tags</h3>
+            </div>
+            <div class="panel-body">
+              <%= @qnaadd.tag %>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Tags Edit</h3>
+            </div>
+            <div class="panel-body">
+              <%= form_for :tags, url: crawler_translate_path(@qnaadd.id) do |f| %>
+                  <div>
+                    <%= f.text_area :text, class: 'form-control'%>
+                  </div>
+                  <br/>
+                  <div class="pull-right">
+                    <%= f.submit "Confirm", class: 'btn btn-primary btn-sm', size: "60x1"%>
+                  </div>
+              <% end %> 
+            </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+
