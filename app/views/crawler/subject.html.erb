@@ -35,7 +35,7 @@
     <h3 class="panel-title">Question</h3>
   </div>
   <div class="panel-body">
-    <%= @qna.question %>
+    <%= @qna.question.gsub(/<[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*>/, '') %>
   </div>
 </div>
 
@@ -44,7 +44,7 @@
     <h3 class="panel-title">Answer</h3>
   </div>
   <div class="panel-body">
-    <%= @qna.answer %>
+    <%= @qna.answer.gsub(/<[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*>/, '') %>
   </div>
 </div>
 
@@ -53,7 +53,7 @@
     <h3 class="panel-title">Question Translation</h3>
   </div>
   <div class="panel-body">
-    <%= @qnaadd.question %>
+    <%= @qnaadd.question.gsub(/<[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*>/, '') %>
   </div>
 </div>
 
@@ -62,7 +62,7 @@
     <h3 class="panel-title">Answer Translation</h3>
   </div>
   <div class="panel-body">
-    <%= @qnaadd.answer %>
+    <%= @qnaadd.answer.gsub(/<[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*>/, '') %>
   </div>
 </div>
 
@@ -97,7 +97,7 @@
             <h3 class="panel-title">Question Translation</h3>
           </div>
           <div class="panel-body">
-            <%= @qnaadd.question %>
+            <%= @qnaadd.question.gsub(/<[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*>/, '') %>
           </div>
         </div>
 
@@ -140,7 +140,7 @@
               <h3 class="panel-title">Answer Translation</h3>
             </div>
             <div class="panel-body">
-              <%= @qnaadd.answer %>
+              <%= @qnaadd.answer.gsub(/<[\w\s\,\.\?\"\'\!\@\#\$\%\^\&\*\(\)\[\]\{\}\|\\\:\;\/\-\_\=\+]*>/, '') %>
             </div>
           </div>
 
